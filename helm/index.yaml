@@ -9,7 +9,7 @@ entries:
     name: cluster-services
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/cluster-services-0.2.4.tgz
+    - https://randomcoww.github.io/repos/helm/cluster-services-0.2.4.tgz
     version: 0.2.4
   external-dns:
   - apiVersion: v2
@@ -20,7 +20,7 @@ entries:
     name: external-dns
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/external-dns-0.1.15.tgz
+    - https://randomcoww.github.io/repos/helm/external-dns-0.1.15.tgz
     version: 0.1.15
   helm-wrapper:
   - apiVersion: v2
@@ -31,7 +31,7 @@ entries:
     name: helm-wrapper
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/helm-wrapper-0.1.0.tgz
+    - https://randomcoww.github.io/repos/helm/helm-wrapper-0.1.0.tgz
     version: 0.1.0
   hostapd:
   - apiVersion: v2
@@ -42,7 +42,7 @@ entries:
     name: hostapd
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/hostapd-0.1.8.tgz
+    - https://randomcoww.github.io/repos/helm/hostapd-0.1.8.tgz
     version: 0.1.8
   kea:
   - apiVersion: v2
@@ -53,7 +53,7 @@ entries:
     name: kea
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/kea-0.1.15.tgz
+    - https://randomcoww.github.io/repos/helm/kea-0.1.15.tgz
     version: 0.1.15
   kube-dns:
   - apiVersion: v2
@@ -64,7 +64,7 @@ entries:
     name: kube-dns
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/kube-dns-0.1.0.tgz
+    - https://randomcoww.github.io/repos/helm/kube-dns-0.1.0.tgz
     version: 0.1.0
   matchbox:
   - apiVersion: v2
@@ -75,7 +75,7 @@ entries:
     name: matchbox
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/matchbox-0.2.14.tgz
+    - https://randomcoww.github.io/repos/helm/matchbox-0.2.14.tgz
     version: 0.2.14
   mpd:
   - apiVersion: v2
@@ -86,7 +86,7 @@ entries:
     name: mpd
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/mpd-0.4.6.tgz
+    - https://randomcoww.github.io/repos/helm/mpd-0.4.6.tgz
     version: 0.4.6
   simulation:
   - apiVersion: v2
@@ -97,7 +97,7 @@ entries:
     name: simulation
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/simulation-0.1.3.tgz
+    - https://randomcoww.github.io/repos/helm/simulation-0.1.3.tgz
     version: 0.1.3
   stream-server:
   - apiVersion: v2
@@ -108,7 +108,7 @@ entries:
     name: stream-server
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/stream-server-0.1.5.tgz
+    - https://randomcoww.github.io/repos/helm/stream-server-0.1.5.tgz
     version: 0.1.5
   tftpd:
   - apiVersion: v2
@@ -119,7 +119,7 @@ entries:
     name: tftpd
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/tftpd-0.1.1.tgz
+    - https://randomcoww.github.io/repos/helm/tftpd-0.1.1.tgz
     version: 0.1.1
   transmission:
   - apiVersion: v2
@@ -130,7 +130,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/transmission-0.1.7.tgz
+    - https://randomcoww.github.io/repos/helm/transmission-0.1.7.tgz
     version: 0.1.7
   webdav:
   - apiVersion: v2
@@ -141,6 +141,6 @@ entries:
     name: webdav
     type: application
     urls:
-    - https://randomcoww.github.io/homelab/webdav-0.1.5.tgz
+    - https://randomcoww.github.io/repos/helm/webdav-0.1.5.tgz
     version: 0.1.5
 generated: "2023-02-11T19:10:57.718904629-08:00"
