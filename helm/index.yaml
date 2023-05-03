@@ -3,7 +3,7 @@ entries:
   cluster-services:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.77616724-07:00"
+    created: "2023-05-03T04:37:04.770852562-07:00"
     description: Basic cluster services with minimal configuration
     digest: 622b2294390ec8ef51480be3eaec5ac7f2c50aa099ffaa1ab28b83365a27254b
     name: cluster-services
@@ -14,7 +14,7 @@ entries:
   external-dns:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.776874071-07:00"
+    created: "2023-05-03T04:37:04.771404666-07:00"
     description: external-dns
     digest: ff9fc8a348069b7dd31acedf6f6249d19931a3666e1ca0e5ec7de4ad89278181
     name: external-dns
@@ -25,7 +25,7 @@ entries:
   helm-wrapper:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.777074948-07:00"
+    created: "2023-05-03T04:37:04.771564755-07:00"
     description: Wrap any manifest in helm to use terraform helm provider
     digest: c1305f3c2535b5569c210cbf28f1bd566b6f37777a6c413fcdbe3b30f959240a
     name: helm-wrapper
@@ -36,7 +36,7 @@ entries:
   hostapd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.777354546-07:00"
+    created: "2023-05-03T04:37:04.771859684-07:00"
     description: A Helm chart for Kubernetes
     digest: 18ef6358a9b3afeaf10f5b046a98cf221125f6a451d272f2c74a0e8c5991dd47
     name: hostapd
@@ -47,7 +47,7 @@ entries:
   kea:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.777640217-07:00"
+    created: "2023-05-03T04:37:04.772241059-07:00"
     description: Kea
     digest: e4221c6b11064dd30e511b9ccf6b9f8aaa36615227d3f5fbff7781249b70da25
     name: kea
@@ -58,7 +58,7 @@ entries:
   kube-dns:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.778255772-07:00"
+    created: "2023-05-03T04:37:04.772838701-07:00"
     description: kube-dns
     digest: 4df12e37b29b24bd2da08e25803bea114304e48c87ec3be4162fd2c7b02dfce6
     name: kube-dns
@@ -69,7 +69,7 @@ entries:
   matchbox:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.778807675-07:00"
+    created: "2023-05-03T04:37:04.773422987-07:00"
     description: Matchbox PXE boot
     digest: cba665ac04f08302d675ec4ea99865bbffb75c6ef5b6a96e3ce90ee77d9af306
     name: matchbox
@@ -80,7 +80,7 @@ entries:
   mpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.779436516-07:00"
+    created: "2023-05-03T04:37:04.77413538-07:00"
     description: A Helm chart for Kubernetes
     digest: f3e9bf4a6cf1ef2618cdd6209e34028f6dd8fc6edfcf2d523d1f61b38bb3b69b
     name: mpd
@@ -91,7 +91,17 @@ entries:
   simulation:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.782576665-07:00"
+    created: "2023-05-03T04:37:04.778151262-07:00"
+    description: A Helm chart for Kubernetes
+    digest: 697f33f2b4a1bb9f8ab86880556f686fde0d60a428ae441de3381b14e9e4f373
+    name: simulation
+    type: application
+    urls:
+    - https://randomcoww.github.io/repos/helm/simulation-0.1.8.tgz
+    version: 0.1.8
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-05-03T04:37:04.777451573-07:00"
     description: A Helm chart for Kubernetes
     digest: 5d58cacd8ada3545dccc15960c9df40dcd981dd2698619f9c3a8c43e3364142a
     name: simulation
@@ -101,7 +111,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.781930139-07:00"
+    created: "2023-05-03T04:37:04.776742045-07:00"
     description: A Helm chart for Kubernetes
     digest: dfa6ff93bb2ca7482c2fe20c622012ac746448929bd983d9a193d5e44f20f614
     name: simulation
@@ -111,7 +121,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.781288754-07:00"
+    created: "2023-05-03T04:37:04.776108253-07:00"
     description: A Helm chart for Kubernetes
     digest: 596ac38c109c80174370cd552cfe8da66f67845c886b3e4f887df86808105b3e
     name: simulation
@@ -121,7 +131,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.780620737-07:00"
+    created: "2023-05-03T04:37:04.775408124-07:00"
     description: A Helm chart for Kubernetes
     digest: df3a3e74bf2a5e154bb1beb8d685a6cea9da7dc72b15477c6c102308dc6d26b9
     name: simulation
@@ -131,7 +141,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.780004671-07:00"
+    created: "2023-05-03T04:37:04.774755676-07:00"
     description: A Helm chart for Kubernetes
     digest: 907ddcd20365b8f0c6d2a1704ae48911c846e823a6ff09650e11ab5f07e5dbbf
     name: simulation
@@ -142,7 +152,7 @@ entries:
   stream-server:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.782964552-07:00"
+    created: "2023-05-03T04:37:04.778518199-07:00"
     description: A Helm chart for Kubernetes
     digest: 2ce6a0516623427dc18b7dba8b2fda0b43382cb4b2975614ffc65f3cd19d7dad
     name: stream-server
@@ -153,7 +163,7 @@ entries:
   tftpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.783298094-07:00"
+    created: "2023-05-03T04:37:04.77881964-07:00"
     description: TFTPD
     digest: 55773b597e9aad0ad95426dc40a780d0786479311f1f0b4f39aed82bea88a0c6
     name: tftpd
@@ -164,7 +174,7 @@ entries:
   transmission:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.783838084-07:00"
+    created: "2023-05-03T04:37:04.780347746-07:00"
     description: A Helm chart for Kubernetes
     digest: 3dc8a7d65e6f7c6a205046b6bcce2b0ef257f9d4ba48f634ccaba6a30870fbfc
     name: transmission
@@ -175,7 +185,7 @@ entries:
   webdav:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-05-03T04:28:52.784342876-07:00"
+    created: "2023-05-03T04:37:04.78106056-07:00"
     description: A Helm chart for Kubernetes
     digest: 2eb8cb9f1cd32f9051ce0387fa780c17ac28e810846a6a8ec08f5ccbff24fdd9
     name: webdav
@@ -183,4 +193,4 @@ entries:
     urls:
     - https://randomcoww.github.io/repos/helm/webdav-0.1.5.tgz
     version: 0.1.5
-generated: "2023-05-03T04:28:52.774440003-07:00"
+generated: "2023-05-03T04:37:04.770019927-07:00"
