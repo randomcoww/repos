@@ -17,5 +17,5 @@ Add packages under `fedora/`
 podman run -it --rm -v $(pwd)/fedora:/fedora fedora
 
 dnf install -y createrepo
-createrepo /fedora
+createrepo /fedora/38/x86_64
 ```
