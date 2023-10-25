@@ -3,7 +3,39 @@ entries:
   authelia:
   - apiVersion: v2
     appVersion: 4.37.5
-    created: "2023-10-24T17:58:50.827122343-07:00"
+    created: "2023-10-24T20:25:18.704567292-07:00"
+    description: Authelia is a Single Sign-On Multi-Factor portal for web apps
+    digest: c7fbd921842eaa3738aa7f567d4dce5989bd4426b02c165cf4990a4fb771121d
+    home: https://www.authelia.com
+    icon: https://avatars2.githubusercontent.com/u/59122411?s=200&v=4
+    keywords:
+    - SSO
+    - Authentication
+    - Security
+    - Two-Factor
+    - YubiKey
+    - Webauthn
+    - Duo
+    - TOTP
+    - Time-based One Time Password
+    - Push Notifications
+    - LDAP
+    kubeVersion: '>= 1.13.0-0'
+    maintainers:
+    - email: james-d-elliott@users.noreply.github.com
+      name: james-d-elliott
+      url: https://github.com/james-d-elliott
+    name: authelia
+    sources:
+    - https://github.com/authelia/chartrepo/tree/master/charts/authelia
+    - https://www.github.com/authelia/authelia
+    type: application
+    urls:
+    - https://randomcoww.github.io/repos/helm/authelia-0.8.58.tgz
+    version: 0.8.58
+  - apiVersion: v2
+    appVersion: 4.37.5
+    created: "2023-10-24T20:25:18.702413495-07:00"
     description: Authelia is a Single Sign-On Multi-Factor portal for web apps
     digest: 146a421f49915acc20de2b005892b10f4c7bbdc9cc9a33de9dff0a0e2c9860d3
     home: https://www.authelia.com
@@ -36,7 +68,7 @@ entries:
   cluster-services:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.827273438-07:00"
+    created: "2023-10-24T20:25:18.70474111-07:00"
     description: Basic cluster services with minimal configuration
     digest: dc7542e3b4eb03184c8be77e14334dbaab2ea5ff5b71d408984b520936195854
     name: cluster-services
@@ -47,7 +79,7 @@ entries:
   code:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.827417029-07:00"
+    created: "2023-10-24T20:25:18.704881385-07:00"
     digest: aabe3fc1a0e3fc35abec77750dbbe9fe6da867c28372f172eb1c17a25913700c
     name: code
     type: application
@@ -57,7 +89,7 @@ entries:
   external-dns:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.82761879-07:00"
+    created: "2023-10-24T20:25:18.705073267-07:00"
     description: external-dns
     digest: ff9fc8a348069b7dd31acedf6f6249d19931a3666e1ca0e5ec7de4ad89278181
     name: external-dns
@@ -68,7 +100,7 @@ entries:
   headscale:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.827790174-07:00"
+    created: "2023-10-24T20:25:18.705250802-07:00"
     description: A Helm chart for Kubernetes
     digest: 18e01c034999a5cea1d18635d2becb92475b0448a599d7a971728d9a4688b5e1
     name: headscale
@@ -79,7 +111,7 @@ entries:
   helm-wrapper:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.827862751-07:00"
+    created: "2023-10-24T20:25:18.705325333-07:00"
     description: Wrap any manifest in helm to use terraform helm provider
     digest: c1305f3c2535b5569c210cbf28f1bd566b6f37777a6c413fcdbe3b30f959240a
     name: helm-wrapper
@@ -90,7 +122,7 @@ entries:
   hostapd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.827959293-07:00"
+    created: "2023-10-24T20:25:18.705425933-07:00"
     description: A Helm chart for Kubernetes
     digest: 18ef6358a9b3afeaf10f5b046a98cf221125f6a451d272f2c74a0e8c5991dd47
     name: hostapd
@@ -101,7 +133,7 @@ entries:
   kasm-desktop:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.828105559-07:00"
+    created: "2023-10-24T20:25:18.705777838-07:00"
     description: Basic cluster services with minimal configuration
     digest: 900cc27fd42e087699b77fbab3eb375a95a0c50b39e18d389d0bed92a678c66c
     name: kasm-desktop
@@ -112,7 +144,7 @@ entries:
   kea:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.828229443-07:00"
+    created: "2023-10-24T20:25:18.705997833-07:00"
     description: Kea
     digest: 51fac6adec8b455ff7c6887bf3e0ffd0eb0866788c5d693e62c960ca6022ec1b
     name: kea
@@ -123,7 +155,7 @@ entries:
   kube-dns:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.828421826-07:00"
+    created: "2023-10-24T20:25:18.706233378-07:00"
     description: kube-dns
     digest: 4df12e37b29b24bd2da08e25803bea114304e48c87ec3be4162fd2c7b02dfce6
     name: kube-dns
@@ -134,7 +166,7 @@ entries:
   matchbox:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.828601355-07:00"
+    created: "2023-10-24T20:25:18.70644134-07:00"
     description: Matchbox PXE boot
     digest: cba665ac04f08302d675ec4ea99865bbffb75c6ef5b6a96e3ce90ee77d9af306
     name: matchbox
@@ -145,7 +177,7 @@ entries:
   mpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.828808296-07:00"
+    created: "2023-10-24T20:25:18.706699077-07:00"
     description: A Helm chart for Kubernetes
     digest: f3e9bf4a6cf1ef2618cdd6209e34028f6dd8fc6edfcf2d523d1f61b38bb3b69b
     name: mpd
@@ -156,7 +188,7 @@ entries:
   simulation:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.829002022-07:00"
+    created: "2023-10-24T20:25:18.706909454-07:00"
     description: A Helm chart for Kubernetes
     digest: 697f33f2b4a1bb9f8ab86880556f686fde0d60a428ae441de3381b14e9e4f373
     name: simulation
@@ -167,7 +199,7 @@ entries:
   stream-server:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.829114775-07:00"
+    created: "2023-10-24T20:25:18.707038688-07:00"
     description: A Helm chart for Kubernetes
     digest: 2ce6a0516623427dc18b7dba8b2fda0b43382cb4b2975614ffc65f3cd19d7dad
     name: stream-server
@@ -178,7 +210,7 @@ entries:
   tailscale:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.829646809-07:00"
+    created: "2023-10-24T20:25:18.707252983-07:00"
     description: A Helm chart for Kubernetes
     digest: dc9c16939223e9385c13fe6fdc07e6c8820c955dc93063d678d3119d2c561e77
     name: tailscale
@@ -188,7 +220,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.82923416-07:00"
+    created: "2023-10-24T20:25:18.707148696-07:00"
     description: A Helm chart for Kubernetes
     digest: aa946cefdb887655e570c92c3ab58451fb3eb580e5be0d09ea448f14119d4628
     name: tailscale
@@ -199,7 +231,7 @@ entries:
   tftpd:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.829816901-07:00"
+    created: "2023-10-24T20:25:18.707357781-07:00"
     description: TFTPD
     digest: 55773b597e9aad0ad95426dc40a780d0786479311f1f0b4f39aed82bea88a0c6
     name: tftpd
@@ -210,7 +242,7 @@ entries:
   transmission:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.8300658-07:00"
+    created: "2023-10-24T20:25:18.707528233-07:00"
     description: A Helm chart for Kubernetes
     digest: 3dc8a7d65e6f7c6a205046b6bcce2b0ef257f9d4ba48f634ccaba6a30870fbfc
     name: transmission
@@ -221,7 +253,7 @@ entries:
   vaultwarden:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.830312657-07:00"
+    created: "2023-10-24T20:25:18.707715586-07:00"
     description: A Helm chart for Kubernetes
     digest: af8917dc4d9430a5ed1c17700fbcc091777cb6982b4830842c276eba55bd4356
     name: vaultwarden
@@ -232,7 +264,7 @@ entries:
   webdav:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-10-24T17:58:50.830480543-07:00"
+    created: "2023-10-24T20:25:18.70785547-07:00"
     description: A Helm chart for Kubernetes
     digest: 2eb8cb9f1cd32f9051ce0387fa780c17ac28e810846a6a8ec08f5ccbff24fdd9
     name: webdav
@@ -240,4 +272,4 @@ entries:
     urls:
     - https://randomcoww.github.io/repos/helm/webdav-0.1.5.tgz
     version: 0.1.5
-generated: "2023-10-24T17:58:50.82441974-07:00"
+generated: "2023-10-24T20:25:18.700071793-07:00"
