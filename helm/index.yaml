@@ -1,3 +1,25 @@
 apiVersion: v1
-entries: {}
-generated: "2024-01-21T14:19:32.50181349-08:00"
+entries:
+  ocis:
+  - apiVersion: v2
+    appVersion: 4.0.6
+    created: "2024-02-17T15:26:17.454429471-08:00"
+    description: ownCloud Infinite Scale (oCIS) Helm chart
+    digest: 08ef36f12a8a9c5bbcdfc9cbeda3863873d485cbd26760311ff736bdc58dc7bd
+    keywords:
+    - owncloud
+    - ocis
+    maintainers:
+    - email: devops@owncloud.com
+      name: ownCloud GmbH
+      url: https://owncloud.com
+    name: ocis
+    sources:
+    - https://github.com/owncloud/ocis-charts
+    - https://github.com/owncloud/ocis
+    - https://github.com/cs3org/reva
+    type: application
+    urls:
+    - https://randomcoww.github.io/repos/helm/ocis-0.5.0.tgz
+    version: 0.5.0
+generated: "2024-02-17T15:26:17.45093937-08:00"
