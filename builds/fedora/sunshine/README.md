@@ -1,10 +1,19 @@
 ### RPM build
 
 ```bash
-FEDORA_VERSION=39
-ARCH=x86_64
-TAG=docker.io/lizardbyte/sunshine:nightly-fedora-$FEDORA_VERSION
+BASE=fedora
+TAG=39
+BRANCH=master
+IMAGE=sunshine:$BASE-$TAG-$BRANCH
 
-podman run --rm --user 0 --entrypoint=cp -v $(pwd)/../../../fedora/$FEDORA_VERSION:/mnt $TAG \
-  -a /sunshine.rpm /mnt/$ARCH/sunshine.fc$FEDORA_VERSION.$ARCH.rpm
+mkdir -p tmp
+TMPDIR=$(pwd)/tmp podman build \
+  --build-arg BASE=$BASE \
+  --build-arg TAG=$TAG \
+  --build-arg BRANCH=$BRANCH \
+  -f Containerfile \
+  -t $IMAGE
+
+podman run --rm --user 0 --entrypoint=cp -v $(pwd)/../../../fedora/$TAG:/mnt $IMAGE \
+  -a /rpmbuild/. /mnt/
 ```

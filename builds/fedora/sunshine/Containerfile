@@ -1,0 +1,110 @@
+# Based on https://github.com/LizardByte/Sunshine/blob/master/docker/fedora-39.dockerfile
+
+# syntax=docker/dockerfile:1.4
+# artifacts: true
+# platforms: linux/amd64,linux/arm64/v8
+# platforms_pr: linux/amd64
+# no-cache-filters: sunshine-base,artifacts,sunshine
+ARG BASE=fedora
+ARG TAG=39
+FROM ${BASE}:${TAG} AS sunshine-base
+
+FROM sunshine-base as sunshine-build
+
+COPY custom.repo /etc/yum.repos.d/
+
+ARG BRANCH
+# note: BUILD_VERSION may be blank
+
+ENV BRANCH=${BRANCH}
+ENV CUDA_BUILD="550.54.15"
+ENV CUDA_VERSION="12-4"
+
+# install dependencies
+# hadolint ignore=DL3041
+RUN <<_DEPS
+#!/bin/bash
+set -e
+dnf -y install --setopt=install_weak_deps=False --best \
+  boost-devel-1.81.0* \
+  cmake-3.27.* \
+  gcc-13.2.* \
+  gcc-c++-13.2.* \
+  git \
+  libappindicator-gtk3-devel \
+  libcap-devel \
+  libcurl-devel \
+  libdrm-devel \
+  libevdev-devel \
+  libnotify-devel \
+  libva-devel \
+  libvdpau-devel \
+  libX11-devel \
+  libxcb-devel \
+  libXcursor-devel \
+  libXfixes-devel \
+  libXi-devel \
+  libXinerama-devel \
+  libXrandr-devel \
+  libXtst-devel \
+  mesa-libGL-devel \
+  miniupnpc-devel \
+  nodejs \
+  numactl-devel \
+  openssl-devel \
+  opus-devel \
+  pulseaudio-libs-devel \
+  rpm-build \
+  wget \
+  which \
+  intel-mediasdk-devel \
+  https://developer.download.nvidia.com/compute/cuda/repos/fedora$(rpm -E %fedora)/$(arch)/cuda-drivers-$CUDA_BUILD-1.$(arch).rpm \
+  cuda-nvcc-$CUDA_VERSION \
+  cuda-libraries-devel-$CUDA_VERSION
+dnf clean all
+rm -rf /var/cache/yum
+_DEPS
+
+# copy repository
+RUN <<_REPO
+#!/bin/bash
+set -e
+mkdir -p /build
+git clone -b $BRANCH --recurse-submodules https://github.com/LizardByte/Sunshine.git /build/sunshine
+_REPO
+
+# setup build directory
+WORKDIR /build/sunshine/build
+
+# cmake and cpack
+RUN <<_MAKE
+#!/bin/bash
+set -e
+cmake \
+  -DCMAKE_CUDA_COMPILER:PATH=/usr/local/cuda/bin/nvcc \
+  -DBUILD_WERROR=ON \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=/usr \
+  -DSUNSHINE_ASSETS_DIR=share/sunshine \
+  -DSUNSHINE_EXECUTABLE_PATH=/usr/bin/sunshine \
+  -DSUNSHINE_ENABLE_WAYLAND=ON \
+  -DSUNSHINE_ENABLE_X11=ON \
+  -DSUNSHINE_ENABLE_DRM=ON \
+  -DSUNSHINE_ENABLE_CUDA=ON \
+  -DCPACK_RPM_POST_INSTALL_SCRIPT_FILE="" \
+  /build/sunshine
+make -j "$(nproc)"
+cpack -G RPM
+_MAKE
+
+RUN <<_COPY
+#!/bin/bash
+set -e
+mkdir -p /rpmbuild/$(arch)
+mv cpack_artifacts/Sunshine.rpm /rpmbuild/$(arch)/sunshine-$BRANCH.fc$TAG.$(arch).rpm
+_COPY
+
+FROM alpine:latest AS artifacts
+ARG BASE
+ARG TAG
+COPY --from=sunshine-build /rpmbuild/ /rpmbuild/
