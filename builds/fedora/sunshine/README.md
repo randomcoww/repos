@@ -3,7 +3,7 @@
 ```bash
 BASE=fedora
 TAG=39
-BRANCH=master
+BRANCH=0.22.2
 IMAGE=sunshine:$BASE-$TAG-$BRANCH
 
 mkdir -p tmp

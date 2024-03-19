@@ -16,6 +16,7 @@ COPY custom.repo /etc/yum.repos.d/
 ARG BRANCH
 # note: BUILD_VERSION may be blank
 
+ENV TAG=${TAG}
 ENV BRANCH=${BRANCH}
 ENV CUDA_BUILD="550.54.15"
 ENV CUDA_VERSION="12-4"
@@ -57,6 +58,7 @@ dnf -y install --setopt=install_weak_deps=False --best \
   rpm-build \
   wget \
   which \
+  npm \
   intel-mediasdk-devel \
   https://developer.download.nvidia.com/compute/cuda/repos/fedora$(rpm -E %fedora)/$(arch)/cuda-drivers-$CUDA_BUILD-1.$(arch).rpm \
   cuda-nvcc-$CUDA_VERSION \
@@ -65,12 +67,14 @@ dnf clean all
 rm -rf /var/cache/yum
 _DEPS
 
-# copy repository
+# copy repository and remove postinst
 RUN <<_REPO
 #!/bin/bash
 set -e
 mkdir -p /build
-git clone -b $BRANCH --recurse-submodules https://github.com/LizardByte/Sunshine.git /build/sunshine
+git clone -b v$BRANCH --recurse-submodules https://github.com/LizardByte/Sunshine.git /build/sunshine
+
+echo "#!/bin/sh" > /build/sunshine/src_assets/linux/misc/postinst
 _REPO
 
 # setup build directory
@@ -91,7 +95,6 @@ cmake \
   -DSUNSHINE_ENABLE_X11=ON \
   -DSUNSHINE_ENABLE_DRM=ON \
   -DSUNSHINE_ENABLE_CUDA=ON \
-  -DCPACK_RPM_POST_INSTALL_SCRIPT_FILE="" \
   /build/sunshine
 make -j "$(nproc)"
 cpack -G RPM
