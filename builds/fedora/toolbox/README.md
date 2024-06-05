@@ -1,10 +1,10 @@
 ### RPM build
 
-Build with nft, without snmp
+Build without host network and resolvconf symlink
 
 ```bash
-FEDORA_VERSION=39
-TAG=keepalived:latest
+FEDORA_VERSION=40
+TAG=toolbox:latest
 
 mkdir -p tmp
 TMPDIR=$(pwd)/tmp podman build \

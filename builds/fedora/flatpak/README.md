@@ -4,7 +4,7 @@ Build without malcontent
 
 ```bash
 FEDORA_VERSION=39
-TAG=flatpak:lates
+TAG=flatpak:latest
 
 mkdir -p tmp
 TMPDIR=$(pwd)/tmp podman build \

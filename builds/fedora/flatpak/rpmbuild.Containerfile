@@ -10,7 +10,7 @@ RUN set -x \
   && dnf install -y --setopt=install_weak_deps=False \
     rpmdevtools \
     dnf-plugins-core \
-    git \
+    git-core \
   \
   && mkdir -p $HOME/rpmbuild/ \
   && cd $HOME/rpmbuild \
