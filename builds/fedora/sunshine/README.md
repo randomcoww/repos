@@ -6,17 +6,18 @@ Based on https://github.com/LizardByte/Sunshine/blob/master/docker/fedora-39.doc
 - Do not enable CUDA. CUDA enabled build does not seem to work on setups which do not have a display directly on the Nvidia GPU ports.
 
 ```bash
-FEDORA_VERSION=39
-BRANCH=0.23.1
+FEDORA_VERSION=40
+BRANCH=master
 TAG=sunshine:fedora-$FEDORA_VERSION-$BRANCH
 
 mkdir -p tmp
 TMPDIR=$(pwd)/tmp podman build \
-  --build-arg FEDORA_VERSION=$FEDORA_VERSION \
+  --build-arg TAG=$FEDORA_VERSION \
   --build-arg BRANCH=$BRANCH \
   -f Containerfile \
   -t $TAG
 
+mkdir -p $(pwd)/../../../fedora/$FEDORA_VERSION
 podman run --rm --user 0 --entrypoint=cp -v $(pwd)/../../../fedora/$FEDORA_VERSION:/mnt $TAG \
   -a /rpmbuild/. /mnt/
 ```

@@ -17,7 +17,7 @@ Reference: https://github.com/technosophos/tscharts
 Add packages under `fedora/`
 
 ```bash
-FEDORA_VERSION=39
+FEDORA_VERSION=40
 
 podman run --rm -v $(pwd)/fedora:/fedora fedora:$FEDORA_VERSION bash -c "dnf install -y createrepo && createrepo /fedora/$FEDORA_VERSION/x86_64"
 ```

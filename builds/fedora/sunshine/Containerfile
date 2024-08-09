@@ -1,89 +1,43 @@
-# 
-
-ARG FEDORA_VERSION
-FROM fedora:${FEDORA_VERSION} AS sunshine-base
+ARG BASE=fedora
+ARG TAG=40
+FROM ${BASE}:${TAG} AS sunshine-base
 
 FROM sunshine-base as sunshine-build
 
-ARG FEDORA_VERSION
 ARG BRANCH
+ARG BUILD_VERSION
+ARG COMMIT
+# note: BUILD_VERSION may be blank
 
-ENV FEDORA_VERSION=${FEDORA_VERSION}
 ENV BRANCH=${BRANCH}
-
-COPY custom.repo /etc/yum.repos.d/
-
-# install dependencies
-RUN <<_DEPS
-#!/bin/bash
-set -e
-dnf -y install --setopt=install_weak_deps=False --best \
-  boost-devel-1.81.0* \
-  cmake-3.27.* \
-  gcc-13.2.* \
-  gcc-c++-13.2.* \
-  git \
-  libappindicator-gtk3-devel \
-  libcap-devel \
-  libcurl-devel \
-  libdrm-devel \
-  libevdev-devel \
-  libnotify-devel \
-  libva-devel \
-  libvdpau-devel \
-  mesa-libGL-devel \
-  miniupnpc-devel \
-  nodejs \
-  npm \
-  numactl-devel \
-  openssl-devel \
-  opus-devel \
-  pulseaudio-libs-devel \
-  rpm-build \
-  wget \
-  which \
-  systemd \
-  udev \
-  intel-mediasdk-devel
-dnf clean all
-rm -rf /var/cache/yum
-_DEPS
+ENV BUILD_VERSION=${BUILD_VERSION}
+ENV COMMIT=${COMMIT}
 
 # copy repository
 RUN <<_REPO
 #!/bin/bash
 set -e
+dnf -y install --setopt=install_weak_deps=False --best \
+  git-core
+
 mkdir -p /build
 git clone -b v$BRANCH --recurse-submodules https://github.com/LizardByte/Sunshine.git /build/sunshine
-
-echo "#!/bin/sh" > /build/sunshine/src_assets/linux/misc/postinst
 _REPO
 
-# setup build directory
-WORKDIR /build/sunshine/build
+WORKDIR /build/sunshine/
 
-# cmake and cpack
-RUN <<_MAKE
+RUN <<_BUILD
 #!/bin/bash
 set -e
-cmake \
-  -DCMAKE_CUDA_COMPILER:PATH=/usr/local/cuda/bin/nvcc \
-  -DBUILD_WERROR=ON \
-  -DCMAKE_BUILD_TYPE=Release \
-  -DCMAKE_INSTALL_PREFIX=/usr \
-  -DSUNSHINE_ASSETS_DIR=share/sunshine \
-  -DSUNSHINE_EXECUTABLE_PATH=/usr/bin/sunshine \
-  -DSUNSHINE_ENABLE_WAYLAND=ON \
-  -DSUNSHINE_ENABLE_X11=OFF \
-  -DSUNSHINE_ENABLE_DRM=ON \
-  -DSUNSHINE_ENABLE_CUDA=OFF \
-  /build/sunshine
-make -j "$(nproc)"
-cpack -G RPM
+echo '#!/bin/sh' > src_assets/linux/misc/postinst
 
-mkdir -p /rpmbuild/$(arch)
-mv cpack_artifacts/Sunshine.rpm /rpmbuild/$(arch)/sunshine-$BRANCH.fc${FEDORA_VERSION}.$(arch).rpm
-_MAKE
+chmod +x ./scripts/linux_build.sh
+./scripts/linux_build.sh --sudo-off --skip-cuda
+dnf clean all
+rm -rf /var/cache/yum
+
+cp /build/sunshine/build/cpack_artifacts/Sunshine.rpm /rpmbuild/$(arch)/sunshine-$BRANCH.$(arch).rpm
+_BUILD
 
 FROM alpine:latest AS artifacts
 COPY --from=sunshine-build /rpmbuild/ /rpmbuild/
