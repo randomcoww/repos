@@ -1,5 +1,5 @@
 ARG BASE=fedora
-ARG TAG=40
+ARG TAG
 FROM ${BASE}:${TAG} AS sunshine-base
 
 FROM sunshine-base as sunshine-build
@@ -7,11 +7,12 @@ FROM sunshine-base as sunshine-build
 ARG BRANCH
 ARG BUILD_VERSION
 ARG COMMIT
-# note: BUILD_VERSION may be blank
+ARG TAG
 
 ENV BRANCH=${BRANCH}
 ENV BUILD_VERSION=${BUILD_VERSION}
 ENV COMMIT=${COMMIT}
+ENV TAG=${TAG}
 
 # copy repository
 RUN <<_REPO
@@ -36,7 +37,8 @@ chmod +x ./scripts/linux_build.sh
 dnf clean all
 rm -rf /var/cache/yum
 
-cp /build/sunshine/build/cpack_artifacts/Sunshine.rpm /rpmbuild/$(arch)/sunshine-$BRANCH.$(arch).rpm
+mkdir -p /rpmbuild/$(arch)
+mv /build/sunshine/build/cpack_artifacts/Sunshine.rpm /rpmbuild/$(arch)/sunshine-$BRANCH.fc$TAG.$(arch).rpm
 _BUILD
 
 FROM alpine:latest AS artifacts

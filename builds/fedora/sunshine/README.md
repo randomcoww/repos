@@ -7,7 +7,7 @@ Based on https://github.com/LizardByte/Sunshine/blob/master/docker/fedora-39.doc
 
 ```bash
 FEDORA_VERSION=40
-BRANCH=master
+BRANCH=2024.815.221619
 TAG=sunshine:fedora-$FEDORA_VERSION-$BRANCH
 
 mkdir -p tmp
