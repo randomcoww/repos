@@ -7,15 +7,14 @@ Based on https://github.com/LizardByte/Sunshine/blob/master/docker/fedora-39.doc
 
 ```bash
 FEDORA_VERSION=40
-BRANCH=2024.815.221619
+BRANCH=$(curl -s https://api.github.com/repos/lizardbyte/sunshine/tags | jq -r '.[0].name' | tr -d 'v')
 TAG=sunshine:fedora-$FEDORA_VERSION-$BRANCH
 
 mkdir -p tmp
 TMPDIR=$(pwd)/tmp podman build \
   --build-arg TAG=$FEDORA_VERSION \
   --build-arg BRANCH=$BRANCH \
-  -f Containerfile \
-  -t $TAG
+  -t $TAG . \
 
 mkdir -p $(pwd)/../../../fedora/$FEDORA_VERSION
 podman run --rm --user 0 --entrypoint=cp -v $(pwd)/../../../fedora/$FEDORA_VERSION:/mnt $TAG \

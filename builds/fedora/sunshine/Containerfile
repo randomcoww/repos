@@ -33,7 +33,7 @@ set -e
 echo '#!/bin/sh' > src_assets/linux/misc/postinst
 
 chmod +x ./scripts/linux_build.sh
-./scripts/linux_build.sh --sudo-off --skip-cuda
+./scripts/linux_build.sh --sudo-off
 dnf clean all
 rm -rf /var/cache/yum
 
