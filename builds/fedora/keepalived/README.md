@@ -3,7 +3,7 @@
 Build with nft, without snmp
 
 ```bash
-FEDORA_VERSION=40
+FEDORA_VERSION=41
 TAG=keepalived:latest
 
 mkdir -p tmp
