@@ -4,10 +4,11 @@ Build with nft, without snmp
 
 ```bash
 FEDORA_VERSION=41
+TARGETARCH=amd64
 TAG=keepalived:latest
 
-mkdir -p tmp
-TMPDIR=$(pwd)/tmp podman build \
+podman build \
+  --arch $TARGETARCH \
   --build-arg FEDORA_VERSION=$FEDORA_VERSION \
   -f rpmbuild.Containerfile \
   -t $TAG
