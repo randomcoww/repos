@@ -1,3 +1,5 @@
+### Deprecated - moved to image build workflows
+
 ### Helm Charts
 
 > https://randomcoww.github.io/repos/helm/
